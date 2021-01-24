@@ -29,7 +29,7 @@ namespace ToDoList.API
         {
             services.AddDbContext<ToDoContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("ToDoFindlDatabase")));
-            services.AddScoped<IToDoList, MockToDoList>();
+            services.AddScoped<IToDoList, SqlToDoData>();
             services.AddControllers();
         }
 
