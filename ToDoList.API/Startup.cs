@@ -12,7 +12,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ToDoList.API.Models;
-using ToDoList.API.Models.DatabaseContext;
 
 namespace ToDoList.API
 {
@@ -28,9 +27,9 @@ namespace ToDoList.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ToDoDbContext>(options => 
-                options.UseSqlServer(Configuration.GetConnectionString("BloggingDatabase")));
-            services.AddScoped<IToDoRepository, ToDoRepository>();
+            services.AddDbContext<ToDoContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("ToDoFindlDatabase")));
+            services.AddScoped<IToDoList, MockToDoList>();
             services.AddControllers();
         }
 

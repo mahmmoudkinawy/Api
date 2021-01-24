@@ -12,10 +12,11 @@ namespace ToDoList.API.Models
         public Guid Id { get; set; }
 
         [Required]
-        [MaxLength(1000)]
+        [MaxLength(150)]
         public string Text { get; set; }
 
         [Required]
+        [MaxLength(5)]
         public bool Completed { get; set; } = false;
     }
 }
